@@ -7,7 +7,7 @@ on:
   release:
     types: [created]
   push:
-    branches: [ master ]
+    branches: [ AUS-3530 ]
 
 jobs:
   build:
