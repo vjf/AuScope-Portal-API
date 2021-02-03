@@ -36,12 +36,12 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy # -s $GITHUB_WORKSPACE/settings.xml
+      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
       continue-on-error: true
        
-    - if: ${{ failure() }}
+    - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: auscope-portal-api.war
